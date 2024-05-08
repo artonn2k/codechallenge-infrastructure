@@ -1,0 +1,45 @@
+version: "2.3"
+
+services:
+  bankpostgres:
+    image: postgres:16.2
+    container_name: bpostgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - bankpostgres:/var/lib/postgresql
+      - bankpostgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=banksystem
+    # command: postgres -c "listen_addresses='*'"
+    restart: always
+
+  bankpgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: bpgadmin
+    ports:
+      - "85:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=arton.bilalli1@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=artonbilalli
+    volumes:
+      - bankpgadmin:/var/lib/pgadmin
+    restart: always
+
+volumes:
+  bankpostgres:
+    external:
+      true
+  bankpostgres-data:
+    external:
+      true
+  bankpgadmin:
+    external:
+      true
+
+networks:
+  default:
+    external:
+      true
+    name: banksystem
