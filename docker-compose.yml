@@ -5,7 +5,7 @@ services:
     image: postgres:16.2
     container_name: bpostgres
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - bankpostgres:/var/lib/postgresql
       - bankpostgres-data:/var/lib/postgresql/data
