@@ -43,7 +43,7 @@ To set up the Bank System infrastructure, follow these steps:
 
 5. Access the services using the following URLs:
 
-    - PostgreSQL: [http://localhost:5432](http://localhost:5432)
+    - PostgreSQL: [http://localhost:5433](http://localhost:5433)
     - pgAdmin: [http://localhost:85](http://localhost:85)
 
 ## Configuration
